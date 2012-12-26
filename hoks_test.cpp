@@ -24,11 +24,11 @@ TEST(minsketch,estimate) {
 }
 
 TEST(minsketch,multi_estimate) {
-  count_min_sketch<int> s(12,10);
-  for(int i = 0; i<100; ++i) {
+  count_min_sketch<int> s(12,8);
+  for(int i = 0; i<1000; ++i) {
     s.add(i, i*i);
   }
-  for(int i = 0; i<100; ++i) {
+  for(int i = 0; i<1000; ++i) {
     std::cerr << "v:" << i << std::endl;
     ASSERT_EQ(i*i, s.estimate(i));
   }
